@@ -1,0 +1,2 @@
+CREATE DATABASE `parterner1`;
+CREATE DATABASE `parterner2`;

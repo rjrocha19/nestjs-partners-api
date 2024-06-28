@@ -1,6 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { CreateSpotDto } from './dto/create-spot.dto';
-import { UpdateSpotDto } from './dto/update-spot.dto';
+import { CreateSpotDto } from './request/create-spot.request';
+import { UpdateSpotDto } from './request/update-spot.request';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { SpotStatus } from '@prisma/client';
 
@@ -21,7 +21,7 @@ export class SpotsService {
     return this.prisma.spot.create({
       data: {
         ...createSpotDto,
-        status: SpotStatus.AVAILABLE,
+        status: SpotStatus.available,
       },
     });
   }
