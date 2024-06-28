@@ -1,0 +1,46 @@
+GET http://localhost:3000/events
+
+### 
+# @name createEvente 
+POST http://localhost:3000/events
+Content-Type: application/json
+
+{
+  "title": "Event 1",
+  "description": "Description 1",
+  "date": "2021-01-01T12:00:00",
+  "price": 100
+}
+
+###
+@eventId = {{ createEvente.response.body.id }}
+
+###
+GET http://localhost:3000/events/{{ eventId }}
+
+###
+PATCH  http://localhost:3000/events/{{ eventId }}
+Content-Type: application/json
+
+{
+  "title": "Event 1",
+  "description": "Description 1",
+  "date": "2021-01-01T12:00:00",
+  "price": 100
+}
+
+###
+DELETE  http://localhost:3000/events/{{eventId}} 
+
+###
+
+GET http://localhost:3000/events/{{eventId}}/spots
+
+###
+#@name createSpot
+POST http://localhost:3000/events/{{eventId}}/spots
+Content-Type: application/json
+
+{
+  "name": "A1"
+}
